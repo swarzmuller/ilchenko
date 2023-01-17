@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface PersonProps {
+  age: number;
+  name: string;
+  isToggle: boolean
+};
+
+class App extends React.Component {
+
+  state: PersonProps = {
+    name: 'Stepan', 
+    age: 25,
+    isToggle: false
+  };
+
+  handleData = () => {
+    this.setState({name: 'Mykola', age: 30});
+  }
+
+  handleToggle = () => {
+    this.setState({ isToggle: !this.state.isToggle});
+  };
+
+  render() {
+    const { age, name, isToggle} = this.state;
+    
+    return (
+      <div>
+        {!isToggle && <p>Name: {name}, age: {age}</p>}
+        <button onClick={this.handleData}>Change Person Data</button>
+        <button onClick={this.handleToggle}>{!isToggle ? 'Hide' : 'Show'}</button>
+      </div>
+    );
+  }
 }
+
 
 export default App;
