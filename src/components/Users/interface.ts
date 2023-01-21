@@ -4,8 +4,15 @@ export interface UsersProps {
 }
 
 export interface ModalProps {
-  close: ()=> void
-  title: string
+  close: () => void
+  title: string,
+  text: boolean,
+}
+
+export interface ButtonProps {
+  clickButton: any
+  children: any
+  text: string
 }
 
 export interface PersonProps {
