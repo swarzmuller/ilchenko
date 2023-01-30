@@ -4,18 +4,21 @@ export interface UsersProps {
 }
 
 export interface ModalProps {
-  close: () => void
-  title: string,
-  text: boolean,
+  close: () => void;
+  removeItem: () => void;
+  changeTitle: any;
+  title: string;
+  currentModal: boolean;
 }
 
 export interface ButtonProps {
-  clickButton: any
-  children: any
-  text: string
+  clickButton: () => void;
+  children: React.ReactNode;
+  text: string;
 }
 
 export interface PersonProps {
   posts: Array<UsersProps>;
   isLoading: boolean;
+  isRemovePost: boolean;
 }

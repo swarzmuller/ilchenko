@@ -1,6 +1,6 @@
 import React from "react";
 import UsersItem from "./UserItem";
-import {PersonProps} from "./interface";
+import { PersonProps } from "./interface";
 
 import "./style.css";
 
@@ -8,6 +8,7 @@ class Users extends React.Component {
   state: PersonProps = {
     posts: [],
     isLoading: true,
+    isRemovePost: false,
   };
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class Users extends React.Component {
 
   render() {
     const { posts, isLoading } = this.state;
+    
     return (
       <>
         {!isLoading ? (
