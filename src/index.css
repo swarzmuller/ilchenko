@@ -1,0 +1,146 @@
+.active,
+.languages li {
+  font-weight: 700;
+}
+.button,
+.popular-item,
+.reset {
+  text-align: center;
+}
+.languages li,
+.reset:hover {
+  cursor: pointer;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    Helvetica Neue, sans-serif;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: #d0021b;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+.button {
+  color: #e6e6e6;
+  background: #0a0a0a;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+  width: 200px;
+  display: block;
+  padding: 7px 0;
+  margin: 10px auto;
+}
+.column,
+.languages,
+.nav,
+.popular-list,
+.row {
+  display: flex;
+}
+.button:hover:enabled {
+  background: linear-gradient(#1a1a1a, #0a0a0a);
+  color: #fff;
+  text-decoration: none;
+}
+.button:active {
+  transform: translateY(1px);
+}
+.avatar {
+  width: 150px;
+  border-radius: 50%;
+}
+.space-list-items {
+  margin-bottom: 7px;
+}
+.languages {
+  justify-content: center;
+}
+.languages li {
+  margin: 10px;
+}
+.popular-list {
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.popular-item {
+  margin: 20px;
+}
+.popular-rank {
+  font-size: 20px;
+  margin: 10px;
+}
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav li {
+  margin-right: 15px;
+}
+.row {
+  justify-content: space-around;
+}
+.column {
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+}
+.column input {
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.43);
+  font-size: 16px;
+  width: 80%;
+}
+.column label,
+.header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+}
+.reset {
+  border: none;
+  background: 0 0;
+  color: #d0021b;
+  display: block;
+  width: 100%;
+  outline: 0;
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  height: 82px;
+}
+
+.tab__item {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid grey;
+  margin-right: -1px;
+  background: #fff;
+  border-radius: 10px 10px 0px 0px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-active {
+  background: #d0021b;
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid #d0021b;
+  border-bottom: none;
+  padding: 30px;
+}
