@@ -11,7 +11,7 @@ const Popular = () => {
     if (lang === null) {
       setSearchParams({ lang: "all" });
     }
-  })
+  }, [setSearchParams, lang])
 
   const searchHandler = (value: string) => {
     setSearchParams({ lang: value });
