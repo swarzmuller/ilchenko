@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Battle from "./Battle";
-import Home from "./Home";
-import Popular from "./Popular";
+import Battle from "./Pages/Battle";
+import Home from "./Pages/Home";
+import Popular from "./Pages/Popular";
+import NotFound from "./Pages/NotFound";
 import Nav from "./Nav";
-import NotFound from "./NotFound";
 
 import "./../index.css";
 
