@@ -39,6 +39,7 @@ li {
   display: block;
   padding: 7px 0;
   margin: 10px auto;
+  cursor: pointer;
 }
 .column,
 .languages,
@@ -318,4 +319,90 @@ li {
   cursor: pointer;
   display: block;
   margin: 0 auto 22px;
+}
+
+.battle__list.rusults {
+  justify-content: space-between;
+}
+
+.battle__item.rusults {
+  max-width: 296px;
+  margin: 10px;
+  height: auto;
+}
+.battle__item.rusults .player-info__list {
+  width: 100%;
+}
+
+.battle__item.rusults .player-info__item {
+  width: 100%;
+  padding: 7px 0;
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 21px;
+}
+
+.sticky {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  box-shadow: 0 2px 9px 4px #bdb3b3;
+  width: 100%;
+  padding: 20px;
+}
+
+.battle__item.rusults .player-info__item:first-letter {
+  text-transform: uppercase;
+}
+
+.battle__item.rusults:nth-child(2n - 1) {
+  margin: 10px;
+}
+
+.battle__list.rusults.checkWinner {
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(1) {
+  background: gold;
+  order: 1;
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(1):before {
+  font-size: 25px;
+  color: #d0021b;
+  font-weight: 900;
+  content: "Winner! 1st place";
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(2) {
+  background: silver;
+  margin-top: 80px;
+  transition: 0.5s;
+  order: 0;
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(2):before {
+  font-size: 25px;
+  color: #d0021b;
+  font-weight: 900;
+  content: "2nd place";
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(3) {
+  background: #cb870c;
+  margin-top: 140px;
+  order: 3;
+}
+
+.battle__list.rusults.checkWinner .battle__item:nth-child(3):before {
+  font-size: 25px;
+  color: #d0021b;
+  font-weight: 900;
+  content: "3rd place";
+}
+
+.battle__list.rusults.checkWinner .battle__item {
+  order: 4;
 }

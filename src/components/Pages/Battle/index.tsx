@@ -20,7 +20,7 @@ const Battle = () => {
   });
   const [userId, setUserId] = useState([initialPlayer1, initialPlayer2]);
 
-  const userInfo = (userId: string, userName: string, userAvatar: string | null) => {    
+  const userInfo = (userId: string, userName: string, userAvatar: string | null) => {
     setUser((prevState: {}) => ({
       ...prevState,
       [userId]: {
@@ -52,9 +52,11 @@ const Battle = () => {
 
   const checkOnFill = () => {
     const arr = Object.values(user).filter((userN) => userN.name !== "");
+    const namesArr = arr.map((namesArrItem) => namesArrItem.name)
+    
     if (arr.length >= 2) {
       return (
-        <Link to="/results" className="button">
+        <Link to="/battle/results" className="button" state={{ usersNames: namesArr }}>
           Results
         </Link>
       );
@@ -69,7 +71,7 @@ const Battle = () => {
       <div className="battle__list">
         {userId.map((ids, index) => (
           <div className="battle__item column" key={index}>
-            <PlayerPreview id={ids} user={user} />
+            <PlayerPreview image={user[ids].img} login={user[ids].name}/>
             <PlayerInput id={ids} index={index + 1} handleChange={handleChange}>
               <button className="battle__remove" onClick={() => handleRemoveUser(ids)}>
                 Remove
