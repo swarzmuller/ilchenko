@@ -8,9 +8,17 @@ export interface PopularData {
 
 export interface PopularProps {
   repos: Array<PopularData>;
+  payload: []
 }
 
-export interface TabsProps {
-  lang: string | null;
-  tabsSwitcher: (value: string) => void;
+export interface PopularState {
+  selectedLanguage: string;
+  loading: boolean;
+  error: null | string;
+  repos: PopularProps;
+}
+
+export interface PopularReducer {
+  popularReducer: PopularState;
+
 }

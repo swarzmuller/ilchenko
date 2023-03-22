@@ -1,10 +1,36 @@
-import { memo } from "react";
-import { PopularProps } from "../../../interface";
+import { memo, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import getRepos from "../../../state/popular/popular.thunk";
+import { PopularReducer } from "../../../interface";
 
-const SelectedRepos = memo((props: PopularProps) => {
+const SelectedRepos = memo(() => {
+  const dispatch = useDispatch();
+  const selectedLanguage = useSelector(
+    (state: PopularReducer) => state.popularReducer.selectedLanguage
+  );
+  const loading = useSelector((state: PopularReducer) => state.popularReducer.loading);
+  const repos = useSelector((state: PopularReducer) => state.popularReducer.repos);
+  const error = useSelector((state: PopularReducer) => state.popularReducer.error);
+
+  useEffect(() => {
+    dispatch(getRepos(selectedLanguage) as any);
+  }, [selectedLanguage, dispatch]);
+
+  if (loading) {
+    return <div className="content__loading"></div>;
+  }
+
+  if (error) {
+    return (
+      <p className="content__error">
+        Ooops! Something Went Wrong! Status: <span> {error}</span>
+      </p>
+    );
+  }
+
   return (
     <ul className="content">
-      {props.repos.map((repo, index) => {
+      {repos.payload.map((repo: any, index: number) => {
         return (
           <li className="content__item" key={repo.id}>
             <p className="content__number">#{index + 1}</p>

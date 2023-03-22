@@ -1,16 +1,21 @@
 import { memo } from "react";
-import { TabsProps } from "../../../interface";
+import { useDispatch, useSelector } from "react-redux";
+import { PopularReducer } from "../../../interface";
+import { selectedLanguageAction } from "../../../state/popular/popular.action";
 
 const laguages = ["All", "Javascript", "Ruby", "Java", "CSS", "Python"];
 
-const Tabs = memo((props: TabsProps) => {
+const Tabs = memo(() => {
+  const dispatch = useDispatch();
+  const selectedLanguage = useSelector((state: PopularReducer) => state.popularReducer.selectedLanguage);
+
   return (
     <ul className="tabs">
       {laguages.map((laguage, index: number) => (
         <li
           key={index}
-          className={props.lang === laguage.toLowerCase() ? "tab__item tab-active" : "tab__item"}
-          onClick={() => props.tabsSwitcher(laguage.toLowerCase())}
+          className={laguage === selectedLanguage ? "tab__item tab-active" : "tab__item"}
+          onClick={() => dispatch(selectedLanguageAction(laguage))}
         >
           {laguage}
         </li>

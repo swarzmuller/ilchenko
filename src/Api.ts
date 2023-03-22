@@ -1,3 +1,18 @@
+export const fetchData = (query: string) => {
+  return new Promise((resolve, reject) => {
+    fetch(
+      window.encodeURI(
+        `https://api.github.com/search/repositories?q=${query}&sort=stars&order=desc&type=Repositories`
+      )
+    ).then((response) => {
+      if (response.ok) {
+        resolve(response.json());
+      }
+      reject(response.status);
+    });
+  });
+};
+
 const getProfile = (userName: string) => {
   return new Promise((resolve, reject) => {
     fetch(`https://api.github.com/users/${userName}`)
