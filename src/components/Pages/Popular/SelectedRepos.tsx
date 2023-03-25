@@ -6,11 +6,11 @@ import { PopularReducer } from "../../../interface";
 const SelectedRepos = memo(() => {
   const dispatch = useDispatch();
   const selectedLanguage = useSelector(
-    (state: PopularReducer) => state.popularReducer.selectedLanguage
+    (state: PopularReducer) => state.popular.selectedLanguage
   );
-  const loading = useSelector((state: PopularReducer) => state.popularReducer.loading);
-  const repos = useSelector((state: PopularReducer) => state.popularReducer.repos);
-  const error = useSelector((state: PopularReducer) => state.popularReducer.error);
+  const loading = useSelector((state: PopularReducer) => state.popular.loading);
+  const repos = useSelector((state: PopularReducer) => state.popular.repos);
+  const error = useSelector((state: PopularReducer) => state.popular.error);
 
   useEffect(() => {
     dispatch(getRepos(selectedLanguage) as any);
@@ -30,7 +30,7 @@ const SelectedRepos = memo(() => {
 
   return (
     <ul className="content">
-      {repos.payload.map((repo: any, index: number) => {
+      {repos.map((repo: any, index: number) => {
         return (
           <li className="content__item" key={repo.id}>
             <p className="content__number">#{index + 1}</p>

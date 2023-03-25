@@ -7,6 +7,7 @@ export interface PopularData {
 }
 
 export interface PopularProps {
+  [x: string]: any;
   repos: Array<PopularData>;
   payload: []
 }
@@ -19,6 +20,6 @@ export interface PopularState {
 }
 
 export interface PopularReducer {
-  popularReducer: PopularState;
+  popular: PopularState;
 
 }

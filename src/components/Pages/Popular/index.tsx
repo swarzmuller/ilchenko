@@ -1,6 +1,6 @@
 import { debounce } from "lodash";
 import { useDispatch } from "react-redux";
-import { selectedLanguageAction } from "../../../state/popular/popular.action";
+import { selectedLanguageAction } from "../../../state/popular/popular.slice";
 
 import SelectedRepos from "./SelectedRepos";
 import Tabs from "./Tabs";
@@ -8,7 +8,12 @@ import Tabs from "./Tabs";
 const Popular = () => {
   const dispatch = useDispatch();
   const handleSearch = debounce((value: string) => {
-    dispatch(selectedLanguageAction(value));
+    if(value === "") {      
+      dispatch(selectedLanguageAction("All"));
+    } else {
+      dispatch(selectedLanguageAction(value));
+    }
+    
   }, 1000);
 
   return (
